@@ -1,0 +1,12 @@
+{
+    "name": "natainditama/blux",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nata Inditama",
+            "email": "natainditama@gmail.com"
+        }
+    ],
+    "require": {}
+}

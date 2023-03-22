@@ -2,7 +2,7 @@
 $id = $_GET['id'];
 if (empty($id)) {
     echo "<script>
-    window.location.assign('petugas/index.php');
+    window.location.assign('masyarakat/index.php');
     </script>";
 }
 include __DIR__ . './../koneksi.php';
@@ -11,7 +11,7 @@ $data = mysqli_fetch_assoc($query);
 ?>
 <div class="card shadow">
     <div class="card-header">
-        <a href="petugas/index.php?url=lihat_pengaduan" class="btn btn-primary btn-icon-split">
+        <a href="masyarakat/index.php?url=lihat_pengaduan" class="btn btn-primary btn-icon-split">
             <span class=" icon text-white-5">
                 <i class="fa fa-arrow-left"></i>
             </span>
@@ -19,7 +19,7 @@ $data = mysqli_fetch_assoc($query);
         </a>
     </div>
     <div class="card-body">
-        <form method="post" action="petugas/proses_pengaduan.php" enctype="multipart/form-data">
+        <form method="post" action="masyarakat/proses_pengaduan.php" enctype="multipart/form-data">
             <input type="hidden" name="id_pengaduan" value="<?= $data['id_pengaduan']; ?>" readonly>
             <div class="form-group">
                 <label style="font-size: 18px">Status : </label><br>
@@ -41,19 +41,19 @@ $data = mysqli_fetch_assoc($query);
             </div>
             <div class="form-group">
                 <label style="font-size: 18px">Isi Laporan : </label>
-                <textarea name="isi_laporan" readonly class="form-control " rows="5" required><?= $data['isi_laporan'] ?></textarea>
+                <textarea name="isi_laporan" class="form-control " rows="5" required><?= $data['isi_laporan'] ?></textarea>
             </div>
             <div class="form-group">
                 <label style="font-size: 18px">
                     <p>Foto :</p>
                     <img class="img-thumbnail" src="foto/<?= $data['foto'] ?>" width="350">
-                    <input type="file" style="display: none;" name="foto" readonly disabled accept="image/*">
+                    <input type="file" style="display: none;" name="foto" accept="image/*">
                 </label>
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <button type="submit" name="update" class="btn btn-success mt-2">Simpan</button>
                 <button type="submit" name="delete" class="btn btn-danger mt-2">Hapus</button>
-            </div> -->
+            </div>
         </form>
     </div>
 </div>

@@ -1,22 +1,34 @@
+<?php 
+if (isset($_POST['submit'])) {
+  $nik        = $_POST['nik'];
+  $nama       = $_POST['nama'];
+  $username   = $_POST['username'];
+  $password   = $_POST['password'];
+  $telp       = $_POST['telp'];
+
+  try {
+    
+    include "koneksi.php";
+    $sql = "INSERT INTO masyarakat(nik, nama, username, password, telp) VALUES('$nik', '$nama', '$username', '$password', '$telp')";
+
+    $query = mysqli_query($koneksi, $sql);
+
+    if ($query) {
+      echo "<script>alert('Anda Berhasil Mendaftar.');window.location.assign('index.php');</script>";
+    } else {
+      echo "<script>alert('Anda Gagal Mendaftar');window.location.assign('register.php');</script>";
+    }
+  } catch (Exception $th) {
+    echo "<script>alert('Anda Gagal Mendaftar');window.location.assign('register.php');</script>";
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Aplikasi Pengaduan Masyarakat - Register</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <?php require_once __DIR__ . "./template-part/meta.php" ?>
 
 </head>
 
@@ -36,54 +48,44 @@
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Silahkan Masukan Biodata Untuk Mendaftar DI aplikasi Pengaduan masyarakat.</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Silahkan Masukan Biodata Untuk Mendaftar di APPM</h1>
                   </div>
-                  <form method="post" action="proses-register.php" class="user">
+                  <form method="post" action="" class="user">
                     <div class="form-group">
-                      <input name="nik" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan NIK..."required>
+                      <input name="nik" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan NIK..." required>
                     </div>
                     <div class="form-group">
-                      <input name="nama" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Nama..."required>
+                      <input name="nama" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Nama..." required>
                     </div>
                     <div class="form-group">
-                      <input name="username" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Username..."required>
+                      <input name="username" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Username..." required>
                     </div>
                     <div class="form-group">
                       <input name="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukan Password..." required>
                     </div>
                     <div class="form-group">
-                      <input name="telp" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Nomor Telpon Anda..." required>
+                      <input name="telp" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Telpon..." required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">
                       Register
                     </button>
                     <hr>
                     <a href="index.php" class="btn btn-success btn-user btn-block">
-                      <i class="fa fa-laptop fa-fw"></i> Sudah punya akun...? Silahkan Login
+                      Sudah punya akun...? Silahkan Login
                     </a>
                   </form>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
 
     </div>
 
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  </div>
 
 </body>
 

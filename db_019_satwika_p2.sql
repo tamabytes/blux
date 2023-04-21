@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 21 Mar 2023 pada 00.01
+-- Waktu pembuatan: 21 Apr 2023 pada 04.55
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.0.18
 
@@ -23,6 +23,9 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+DROP DATABASE IF EXISTS `db_019_satwika_p2`;    
+CREATE DATABASE IF NOT EXISTS `db_019_satwika_p2`;
+
 --
 -- Struktur dari tabel `masyarakat`
 --
@@ -32,26 +35,30 @@ CREATE TABLE `masyarakat` (
   `nama` varchar(35) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `telp` varchar(13) NOT NULL
+  `telp` varchar(13) NOT NULL,
+  `level` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
 -- Struktur dari tabel `pengaduan`
 --
-
 CREATE TABLE `pengaduan` (
   `id_pengaduan` int(11) NOT NULL,
   `tgl_pengaduan` date NOT NULL,
   `nik` varchar(16) NOT NULL,
+  `judul_laporan` varchar(150) NOT NULL,
   `isi_laporan` text NOT NULL,
   `foto` varchar(255) NOT NULL,
   `status` enum('0','proses','selesai') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
 -- Struktur dari tabel `petugas`
 --
-
 CREATE TABLE `petugas` (
   `id_petugas` int(11) NOT NULL,
   `nama_petugas` varchar(35) NOT NULL,
@@ -60,6 +67,8 @@ CREATE TABLE `petugas` (
   `telp` varchar(13) NOT NULL,
   `level` enum('admin','petugas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
 -- Struktur dari tabel `tanggapan`
@@ -114,19 +123,19 @@ ALTER TABLE `tanggapan`
 -- AUTO_INCREMENT untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tanggapan`
 --
 ALTER TABLE `tanggapan`
-  MODIFY `id_tanggapan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tanggapan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

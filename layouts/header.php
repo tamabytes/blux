@@ -1,6 +1,8 @@
 <?php if (!session_id()) {
     session_start();
-} ?>
+}
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <!-- Custom styles for this template-->
-    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../assets/css/sb-admin.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs5/1.13.4/dataTables.bootstrap5.min.css" integrity="sha512-zY8EbjNubt5sVVeNIxLQuU6lrDn0zYpaxCtS6mBBaqQREH1ZNQLdUxhHZjPaZhrw1CbEZkNdShEbIInJxzs9dQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -26,7 +28,7 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-th-large"></i>
                 </div>
